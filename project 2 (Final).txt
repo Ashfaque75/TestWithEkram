@@ -1,0 +1,459 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
+
+void main(){
+  runApp(MyApp());
+}
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "project 2" ,
+      theme: ThemeData(primarySwatch: Colors.cyan,),
+      home: DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text("Stats"),
+            centerTitle: true,
+            backgroundColor: Colors.white,
+            leading: IconButton(
+                onPressed: () {print("Pressed back arrow key");},
+                icon: Icon(Icons.arrow_back_ios),),
+            bottom: TabBar(
+              indicator: BoxDecoration(
+                  borderRadius: BorderRadius.circular(100), // Creates border
+                  color: Colors.greenAccent,),
+              tabs: [
+              Tab(child: Text("Day"),),
+              Tab(child: Text("Week"),),
+              Tab(child: Text("Month"),),
+            ],),
+          ),
+          body: Center(
+            child: Column(
+              children: [
+                Expanded(
+                    flex: 1,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          height: 130,
+                          width: 180,
+                          decoration: BoxDecoration(
+                            color: Colors.pinkAccent,
+                            borderRadius: BorderRadius.circular(8)
+                          ),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  Container(
+                                    alignment: Alignment.topLeft,
+                                    padding: EdgeInsets.all(8),
+                                      child: Text("Heart Rate",
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.normal),
+                                      ),
+                                  ),
+                                  SizedBox(
+                                    width: 14,
+                                  ),
+                                  Container(
+                                      child: Align(
+                                        alignment: Alignment.topRight,
+                                          child: Icon(Icons.favorite_border),
+                                      ),
+                                    padding: EdgeInsets.all(8),
+                                  ),
+                                ],
+                              ),
+                              Container(
+                                  alignment: Alignment.center ,
+                                  padding: EdgeInsets.all(10),
+                                  child: Text("124 bpm",
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),),
+                              Container(
+                                  alignment: Alignment.bottomRight ,
+                                  padding: EdgeInsets.all(4),
+                                  child: Text("80-120",
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.normal),
+                                  ),),
+                              Container(
+                                alignment: Alignment.bottomRight ,
+                                  padding: EdgeInsets.all(4),
+                                  child: Text("Healthy",
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.normal),
+                                  ),),
+
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        Container(
+                          height: 130,
+                          width: 180,
+                          decoration: BoxDecoration(
+                              color: Colors.purple,
+                              borderRadius: BorderRadius.circular(8)
+                          ),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  Container(
+                                    alignment: Alignment.topLeft,
+                                    padding: EdgeInsets.all(8),
+                                    child: Text("Sleep",
+                                      style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.normal),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 14,
+                                  ),
+                                  Container(
+                                    child: Align(
+                                      alignment: Alignment.topRight,
+                                      child: Icon(Icons.favorite_border),
+                                    ),
+                                    padding: EdgeInsets.all(8),
+                                  ),
+                                ],
+                              ),
+                              Container(
+                                alignment: Alignment.center ,
+                                padding: EdgeInsets.all(10),
+                                child: Text("8 h 42m",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold),
+                                ),),
+                              Container(
+                                alignment: Alignment.bottomRight ,
+                                padding: EdgeInsets.all(4),
+                                child: Text("Deep Sleep",
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.normal),
+                                ),),
+                              Container(
+                                alignment: Alignment.bottomRight ,
+                                padding: EdgeInsets.all(4),
+                                child: Text("5 h 13 m",
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.normal),
+                                ),),
+
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),),
+                Expanded(
+                    flex: 1,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          height: 130,
+                          width: 180,
+                          decoration: BoxDecoration(
+                              color: Colors.deepOrangeAccent,
+                              borderRadius: BorderRadius.circular(8)
+                          ),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  Container(
+                                    alignment: Alignment.topLeft,
+                                    padding: EdgeInsets.all(8),
+                                    child: Text("Energy Burn",
+                                      style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.normal),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 14,
+                                  ),
+                                  Container(
+                                    child: Align(
+                                      alignment: Alignment.topRight,
+                                      child: Icon(Icons.favorite_border),
+                                    ),
+                                    padding: EdgeInsets.all(8),
+                                  ),
+                                ],
+                              ),
+                              Container(
+                                alignment: Alignment.center ,
+                                padding: EdgeInsets.all(10),
+                                child: Text("583 kcal",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold),
+                                ),),
+                              Container(
+                                alignment: Alignment.bottomRight ,
+                                padding: EdgeInsets.all(4),
+                                child: Text("Daily Goal",
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.normal),
+                                ),),
+                              Container(
+                                alignment: Alignment.bottomRight ,
+                                padding: EdgeInsets.all(4),
+                                child: Text("900 kcal",
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.normal),
+                                ),),
+
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        Container(
+                          height: 130,
+                          width: 180,
+                          decoration: BoxDecoration(
+                              color: Colors.lightBlueAccent,
+                              borderRadius: BorderRadius.circular(8)
+                          ),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  Container(
+                                    alignment: Alignment.topLeft,
+                                    padding: EdgeInsets.all(8),
+                                    child: Text("Steps",
+                                      style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.normal),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 14,
+                                  ),
+                                  Container(
+                                    child: Align(
+                                      alignment: Alignment.topRight,
+                                      child: Icon(Icons.favorite_border),
+                                    ),
+                                    padding: EdgeInsets.all(8),
+                                  ),
+                                ],
+                              ),
+                              Container(
+                                alignment: Alignment.center ,
+                                padding: EdgeInsets.all(10),
+                                child: Text("16,741",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold),
+                                ),),
+                              Container(
+                                alignment: Alignment.bottomRight ,
+                                padding: EdgeInsets.all(4),
+                                child: Text("Daily Goal",
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.normal),
+                                ),),
+                              Container(
+                                alignment: Alignment.bottomRight ,
+                                padding: EdgeInsets.all(4),
+                                child: Text("20,000 Steps",
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.normal),
+                                ),),
+
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),),
+                Expanded(
+                    flex: 1,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          height: 130,
+                          width: 180,
+                          decoration: BoxDecoration(
+                              color: Colors.blueAccent,
+                              borderRadius: BorderRadius.circular(8)
+                          ),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  Container(
+                                    alignment: Alignment.topLeft,
+                                    padding: EdgeInsets.all(8),
+                                    child: Text("Running",
+                                      style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.normal),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 14,
+                                  ),
+                                  Container(
+                                    child: Align(
+                                      alignment: Alignment.topRight,
+                                      child: Icon(Icons.favorite_border),
+                                    ),
+                                    padding: EdgeInsets.all(8),
+                                  ),
+                                ],
+                              ),
+                              Container(
+                                alignment: Alignment.center ,
+                                padding: EdgeInsets.all(10),
+                                child: Text("5,3 km",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold),
+                                ),),
+                              Container(
+                                alignment: Alignment.bottomRight ,
+                                padding: EdgeInsets.all(4),
+                                child: Text("Daily Goal",
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.normal),
+                                ),),
+                              Container(
+                                alignment: Alignment.bottomRight ,
+                                padding: EdgeInsets.all(4),
+                                child: Text("10 km",
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.normal),
+                                ),),
+
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        Container(
+                          height: 130,
+                          width: 180,
+                          decoration: BoxDecoration(
+                              color: Colors.green,
+                              borderRadius: BorderRadius.circular(8)
+                          ),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  Container(
+                                    alignment: Alignment.topLeft,
+                                    padding: EdgeInsets.all(8),
+                                    child: Text("Cycling",
+                                      style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.normal),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 14,
+                                  ),
+                                  Container(
+                                    child: Align(
+                                      alignment: Alignment.topRight,
+                                      child: Icon(Icons.favorite_border),
+                                    ),
+                                    padding: EdgeInsets.all(8),
+                                  ),
+                                ],
+                              ),
+                              Container(
+                                alignment: Alignment.center ,
+                                padding: EdgeInsets.all(10),
+                                child: Text("12,5 km",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold),
+                                ),),
+                              Container(
+                                alignment: Alignment.bottomRight ,
+                                padding: EdgeInsets.all(4),
+                                child: Text("Daily Goal",
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.normal),
+                                ),),
+                              Container(
+                                alignment: Alignment.bottomRight ,
+                                padding: EdgeInsets.all(4),
+                                child: Text("20 km",
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.normal),
+                                ),),
+
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),),
+              ],
+            ),
+          ) ,
+          bottomNavigationBar: BottomNavigationBar(items: [
+            BottomNavigationBarItem(
+                icon: Icon(Icons.home_outlined, color: Colors.black,),
+                label: "Home"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.wallet_giftcard, color: Colors.black,),
+                label: "Reward"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.alarm_on_outlined, color: Colors.black,),
+                label: "Goals"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.account_box, color: Colors.black,),
+                label: "My Profile"),
+          ]
+          ),
+        ),
+      ),
+    );
+  }
+}

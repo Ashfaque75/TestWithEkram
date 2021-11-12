@@ -1,0 +1,194 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+void main(){
+  runApp(MyApp());
+}
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "Project 3",
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            onPressed: (){print("Clicked back arrow");},
+            icon: Icon(Icons.arrow_back),),
+          actions: [
+            IconButton(
+              onPressed: (){print("Clicked star icon");},
+              icon: Icon(Icons.star),),
+            IconButton(
+              onPressed: (){print("Clicked menu icon");},
+              icon: Icon(Icons.more_vert), ),
+          ],
+        ) ,
+        body: Center(
+          child: Column(
+              children: [
+                Image(image: const NetworkImage("https://scontent.fcgp6-1.fna.fbcdn.net/v/t1.6435-9/44404772_1519097481566934_6865090290160500736_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=19026a&_nc_eui2=AeHEzM8R8IdZOfE0jDuu8DMLUgS9blShcetSBL1uVKFx66qperA_vmIjxHJHI6htiAIlqzuO6igkzjwlA_Ku18hz&_nc_ohc=2Y4cjtkP1qMAX988s1d&_nc_ht=scontent.fcgp6-1.fna&oh=ef2ca80aaf68435d9bba523e4531a995&oe=6192C6E5"),
+                  width: 800,
+                  height: 200,
+                  fit: BoxFit.fitWidth,
+                ),
+                Container(
+                  alignment: Alignment.centerLeft ,
+                  padding: EdgeInsets.only(bottom: 5, top: 10, left: 14),
+                  child: Text("Ashfaque Hossain",
+                    style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold ),
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(width: 1, color: Colors.black12 ),
+                      top: BorderSide(width: 1, color: Colors.black12 ),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Column(
+                        children: [
+                          IconButton(
+                            onPressed: (){print("Clicked phone button");},
+                            icon: Icon(Icons.call),
+                          ),
+                          Text("Call"),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          IconButton(
+                            onPressed: (){print("Clicked text button");},
+                            icon: Icon(Icons.message_sharp),
+                          ),
+                          Text("Text"),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          IconButton(
+                            onPressed: (){print("Clicked video button");},
+                            icon: Icon(Icons.videocam_rounded),
+                          ),
+                          Text("Video"),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          IconButton(
+                            onPressed: (){print("Clicked email button");},
+                            icon: Icon(Icons.mail_outline_sharp),
+                          ),
+                          Text("Email"),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.all(5),
+                  child: Row(
+                    children: [
+                      Icon(Icons.call),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        padding: EdgeInsets.all(5),
+                        /*alignment: Alignment.centerLeft,*/
+                        child: Column(
+                          children: [
+                            Text("01675-710753"),
+                            Text("Mobile"),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: 170,
+                      ),
+                     Container(
+                       child: Row(
+                         children: [
+                           Icon(Icons.videocam, color: Colors.blue,),
+                           SizedBox(
+                             width: 15,
+                           ),
+                           Icon(Icons.message_sharp, color: Colors.blue,),
+                         ],
+                       ),
+                     )
+                    ],
+                  ),
+                ),
+                Container(
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 45,
+                      ),
+                      Column(
+                        children: [
+                          Text("01627-273006"),
+                          Text("Work"),
+                        ],
+                      ),
+                      SizedBox(
+                        width: 175,
+                      ),
+                      Icon(Icons.videocam, color: Colors.blue,),
+                      SizedBox(
+                        width: 15,
+                      ),
+                      Icon(Icons.message_sharp, color: Colors.blue,),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(width: 1, color: Colors.black12 ),
+                      top: BorderSide(width: 1, color: Colors.black12 ),
+                    ),
+                  ),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Icon(Icons.mail_outline_sharp),
+                      SizedBox(
+                        width: 12,
+                      ),
+                      Column(
+                        children: [
+                          Text("shayanrahman75@gmail.com"),
+                          Text("Email"),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+        ),
+        floatingActionButton: FloatingActionButton(
+            onPressed: (){print("clicked floating action button");},
+          child: Icon(Icons.add),
+          backgroundColor: Colors.blue,
+        ),
+      ),
+    );
+  }
+}
+
